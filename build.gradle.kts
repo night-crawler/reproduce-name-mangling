@@ -1,3 +1,4 @@
+//         id("org.jetbrains.kotlin.js") version "1.4-M1"
 plugins {
     id("org.jetbrains.kotlin.js") version "1.3.72"
 }
@@ -25,6 +26,7 @@ repositories {
 
 kotlin {
     target {
+//        produceExecutable()
         browser {
             @UseExperimental(org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalDceDsl::class)
             dceTask {
@@ -55,21 +57,8 @@ kotlin {
             implementation(npm("core-js", "3.6.4"))
 
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.3.3")
-            implementation(npm("redux-form", "8.2.6"))
+            implementation("org.jetbrains:kotlin-extensions:1.0.1-pre.106-kotlin-1.3.72")
 
-            implementation("org.jetbrains:kotlin-react:$reactVersion-kotlin-$kotlinVersion")
-            implementation("org.jetbrains:kotlin-react-dom:$reactVersion-kotlin-$kotlinVersion")
-
-            implementation("org.jetbrains:kotlin-react-router-dom:$reactRouterDomVersion-kotlin-$kotlinVersion")
-
-            implementation("org.jetbrains:kotlin-redux:$reduxVersion-kotlin-$kotlinVersion")
-            implementation("org.jetbrains:kotlin-react-redux:$reactReduxVersion-kotlin-$kotlinVersion")
-
-            implementation(npm("react", reactVersion.split("-").first()))
-            implementation(npm("react-dom", reactVersion.split("-").first()))
-
-            implementation(npm("redux", reduxVersion.split("-").first()))
-            implementation(npm("react-redux", reactReduxVersion.split("-").first()))
         }
     }
 }
@@ -80,4 +69,3 @@ dependencies {
 
 }
 
-kotlin.target.browser { }

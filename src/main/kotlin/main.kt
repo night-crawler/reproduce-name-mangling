@@ -2,7 +2,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.await
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.promise
-import redux.form.SubmissionError
 import kotlin.browser.window
 import kotlin.js.Promise
 
@@ -10,7 +9,7 @@ fun chaos(arg: Int) {
     (1..5).forEach {
         if (it == 3) {
             console.log(arg)
-            throw SubmissionError("no one cares")
+            throw Exception("no one cares")
         }
     }
 }
